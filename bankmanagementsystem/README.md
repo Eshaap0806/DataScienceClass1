@@ -220,3 +220,34 @@ Bachelor of Technology (Computer Science and Engineering)
 ## License
 
 This project is licensed under the MIT License.
+
+## Program screenshots
+### main menu
+![Main Menu](screenshots/main_menu.png)
+### savings account
+![Savings Account](screenshots/create_savings_account.png)
+### current account
+![Current Account](screenshots/create_current_account.png)
+### deposit money
+![Deposit Money](screenshots/deposit_money.png)
+### withdraw money
+![Withdraw Money](screenshots/withdraw_money.png)
+### search account
+![Search Account](screenshots/search_account.png)
+### display accounts
+![Display Account](screenshots/display_accounts.png)
+### transaction history
+![Transaction History](screenshots/transaction_history.png)
+### delete account
+![Delete Account](screenshots/delete_account.png)
+### exit
+![Exit](screenshots/exit.png)
+
+
+
+
+
+
+
+
+

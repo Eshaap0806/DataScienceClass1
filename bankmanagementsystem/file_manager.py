@@ -96,7 +96,7 @@ class FileManager:
 
         return accounts
 
-    # ==========================================================
+        # ==========================================================
     # Save Transaction
     # ==========================================================
 
@@ -105,12 +105,16 @@ class FileManager:
 
         file_exists = os.path.isfile(FileManager.TRANSACTIONS_FILE)
 
+        header_required = (
+            not file_exists or
+            os.path.getsize(FileManager.TRANSACTIONS_FILE) == 0
+        )
+
         with open(FileManager.TRANSACTIONS_FILE, "a", newline="") as file:
 
             writer = csv.writer(file)
 
-            if not file_exists:
-
+            if header_required:
                 writer.writerow([
                     "Account Number",
                     "Transaction Type",
@@ -124,8 +128,7 @@ class FileManager:
                 transaction.get_amount(),
                 transaction.get_date_time()
             ])
-
-    # ==========================================================
+        # ==========================================================
     # Load Transactions
     # ==========================================================
 
@@ -137,7 +140,7 @@ class FileManager:
         if not os.path.exists(FileManager.TRANSACTIONS_FILE):
             return transactions
 
-        with open(FileManager.TRANSACTIONS_FILE, "r") as file:
+        with open(FileManager.TRANSACTIONS_FILE, "r", newline="") as file:
 
             reader = csv.DictReader(file)
 
@@ -146,7 +149,8 @@ class FileManager:
                 transaction = Transaction(
                     int(row["Account Number"]),
                     row["Transaction Type"],
-                    float(row["Amount"])
+                    float(row["Amount"]),
+                    row["Date & Time"]
                 )
 
                 transactions.append(transaction)
